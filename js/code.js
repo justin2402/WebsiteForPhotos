@@ -5,6 +5,15 @@ $(document).ready(function () {
 
 
 function ClickedImage() {
-    let clicked = $(this).val();
+    let clicked = $(this).data("touched");
+    if (clicked === false){
     $(this).css("width", "100%")
+        $(this).data("touched", true)
+    }
+    else if(clicked === true){
+        let widthSize = $(this).data("width")
+        $(this).css("width", widthSize)
+        $(this).data("touched", false)
+    }
+
 }
